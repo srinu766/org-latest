@@ -184,7 +184,7 @@ const OrganizationStructure = () => {
         { id: 27, parentId: 29, name: "Valiveti", lastName: "Ramesh", position: "Senior Service Engineer", email: "ramesh.v255@gmail.com", image: "" },
         { id: 28, parentId: 29, name: "Jaheer", lastName: "Pasha", position: "Senior Service Engineer", email: "Jaheerpasha2347@Gmail.Com", image: "" }
     ];
-
+// console.log("dummyData",dummyData)
     useEffect(() => {
         setLoading(true); // Start loading indicator
 
@@ -193,6 +193,8 @@ const OrganizationStructure = () => {
             image: d.image || 'https://via.placeholder.com/50', // Use a placeholder image
             fullName: `${d.name} ${d.lastName}`
         }));
+
+        console.log("data",data)
 
         // Destroy the existing chart instance if it exists
         if (chart.current) {
@@ -258,6 +260,7 @@ const OrganizationStructure = () => {
         setLoading(false); // Stop loading indicator
 
         // Clean up function
+        console.log("chart",chart.current)
         return () => {
             if (chart.current && chart.current.destroy) {
                 chart.current.destroy(); // Ensure OrgChart has a destroy method before calling it
@@ -265,8 +268,13 @@ const OrganizationStructure = () => {
         };
     }, [dummyData]); // Empty dependency array to run only once
 
+    console.log("chartContainerRef",chartContainerRef)
+
     return (
         <>
+        <div>
+            <center>hello</center>
+        </div>
             {isLoading ? (
                 <div className="d-flex justify-content-center mt-5 align-content-center">
                     <div className="spinner-border" role="status">
@@ -275,8 +283,8 @@ const OrganizationStructure = () => {
                 </div>
             ) : (
                 <div className="chart-container" 
-                ref={chartContainerRef} 
-                >j</div>
+                // ref={chartContainerRef} 
+                >h</div>
             )}
          
         </>
